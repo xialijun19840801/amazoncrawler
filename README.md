@@ -28,7 +28,7 @@ The crawler exports data in the following CSV format:
 
 1. Clone this repository or navigate to the project directory:
 ```bash
-cd "amazon crawler"
+cd "amazoncrawler"
 ```
 
 2. Create a virtual environment (recommended):
