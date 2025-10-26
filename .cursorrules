@@ -1,0 +1,144 @@
+# Amazon Web Crawler - Cursor Rules
+
+## Project Overview
+This is a lightweight Amazon web crawler designed for educational and research purposes. The crawler should be respectful, efficient, and compliant with web scraping best practices.
+
+## Core Principles
+
+### Legal & Ethical Guidelines
+- Always respect robots.txt and rate limiting
+- Implement proper delays between requests (minimum 1-2 seconds)
+- Use User-Agent headers that identify the crawler
+- Never overload Amazon's servers
+- Comply with Amazon's Terms of Service
+- Only scrape publicly available data
+- Consider using official APIs when available
+
+### Technical Requirements
+- Use Python with modern web scraping libraries (requests, BeautifulSoup, selenium if needed)
+- Implement proper error handling and retry logic
+- Use session management for efficiency
+- Support both synchronous and asynchronous operations
+- Include comprehensive logging
+- Make the crawler configurable and modular
+
+## Code Standards
+
+### Python Best Practices
+- Use type hints for all functions and variables
+- Follow PEP 8 style guidelines
+- Use dataclasses or Pydantic for data models
+- Implement proper exception handling
+- Use context managers for resource management
+- Include docstrings for all functions and classes
+
+### Project Structure
+```
+amazon_crawler/
+├── src/
+│   ├── crawler/
+│   │   ├── __init__.py
+│   │   ├── base_crawler.py
+│   │   ├── amazon_crawler.py
+│   │   └── parsers/
+│   ├── models/
+│   │   ├── __init__.py
+│   │   └── product.py
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── rate_limiter.py
+│   │   └── logger.py
+│   └── config/
+│       ├── __init__.py
+│       └── settings.py
+├── tests/
+├── requirements.txt
+├── README.md
+└── .env.example
+```
+
+### Key Components to Implement
+
+1. **Base Crawler Class**
+   - Abstract base class for crawler functionality
+   - Common methods for HTTP requests, error handling
+   - Rate limiting and retry logic
+
+2. **Amazon Crawler**
+   - Specific implementation for Amazon.com
+   - Product page parsing
+   - Search result handling
+   - Category navigation
+
+3. **Data Models**
+   - Product information structure
+   - Price tracking models
+   - Review data models
+
+4. **Configuration Management**
+   - Environment-based settings
+   - Rate limiting configuration
+   - Proxy support (if needed)
+
+### Dependencies to Include
+- requests: HTTP library
+- beautifulsoup4: HTML parsing
+- lxml: Fast XML/HTML parser
+- selenium: For JavaScript-heavy pages (optional)
+- aiohttp: Async HTTP requests
+- pydantic: Data validation
+- python-dotenv: Environment variables
+- loguru: Enhanced logging
+
+### Anti-Patterns to Avoid
+- Don't hardcode delays or URLs
+- Don't ignore HTTP status codes
+- Don't scrape without proper headers
+- Don't store sensitive data in code
+- Don't make requests without error handling
+- Don't ignore robots.txt
+- Don't use excessive concurrent requests
+
+### Testing Requirements
+- Unit tests for all core functions
+- Integration tests for crawler components
+- Mock external HTTP requests
+- Test rate limiting behavior
+- Validate data parsing accuracy
+
+### Documentation Standards
+- Comprehensive README with setup instructions
+- API documentation for all public methods
+- Examples of usage
+- Legal disclaimers and usage guidelines
+- Troubleshooting guide
+
+### Performance Considerations
+- Implement connection pooling
+- Use async/await for I/O operations
+- Cache frequently accessed data
+- Implement proper memory management
+- Monitor resource usage
+
+### Security Guidelines
+- Never commit API keys or credentials
+- Use environment variables for sensitive data
+- Implement proper input validation
+- Sanitize scraped data
+- Use HTTPS for all requests
+
+## Development Workflow
+1. Start with basic HTTP requests and HTML parsing
+2. Implement rate limiting and error handling
+3. Add data models and validation
+4. Create configuration management
+5. Add logging and monitoring
+6. Implement tests
+7. Add documentation
+
+## Notes
+- This crawler is for educational purposes only
+- Always check Amazon's current Terms of Service
+- Consider using Amazon's official APIs for production use
+- Be mindful of IP blocking and implement proper rotation if needed
+- Keep the crawler lightweight and efficient
